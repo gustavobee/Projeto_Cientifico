@@ -1,0 +1,27 @@
+Número total dos leitos existentes obtido pelo Excel, mas obtive dois valores diferente para cada ano, esse é o primeiro:
+
+Leitos Existentes 2011: 347906
+Leitos Existentes 2012: 404854
+Leitos Existentes 2013: 463048
+Leitos Existentes 2014: 526691
+Leitos Existentes 2015: 2004350
+Leitos Existentes 2016: 2028115
+Leitos Existentes 2017: 2089046
+Leitos Existentes 2018: 2131358
+Leitos Existentes 2019: 3789371
+Leitos Existentes 2020: 3910551
+Leitos Existentes 2021: 1238739
+
+E esse é o segundo:
+
+Leitos Existentes 2011: 6005616
+Leitos Existentes 2012: 5970120
+Leitos Existentes 2013: 5966119
+Leitos Existentes 2014: 5973866
+Leitos Existentes 2015: 5835009
+Leitos Existentes 2016: 5779519
+Leitos Existentes 2017: 5783548
+Leitos Existentes 2018: 5763142
+Leitos Existentes 2019: 5729120
+Leitos Existentes 2020: 6084041
+Leitos Existentes 2021: 2477478

@@ -1,0 +1,63 @@
+---
+title: "Teste"
+output: html_document
+date: "2023-06-09"
+---
+
+```{r}
+install.packages("scales")
+```
+
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(scales)
+```
+
+```{r}
+populacao_brasil <- read.csv("estimativa-da-população-pessoas.csv")
+```
+
+```{r}
+populacao_brasil
+```
+
+```{r}
+populacao_brasil$periodo <- as.numeric(populacao_brasil$periodo)
+```
+
+```{r}
+populacao_brasil <- subset(populacao_brasil, periodo != 2009)
+```
+
+
+```{r}
+ggplot(data = populacao_brasil, aes(x = periodo, y = valor)) +
+  geom_line() + labs(title = "Gráfico de Crescimento da População Brasileira",
+       x = "Ano",
+       y = "Quantidade de Pessoas") + theme_classic() 
+```
+```{r}
+ggplot(data = populacao_brasil, aes(x = periodo, y = valor)) +
+  geom_line() + labs(title = "Gráfico de Crescimento da População Brasileira",
+       x = "Ano",
+       y = "Quantidade de Pessoas") + theme_bw() 
+```
+
+
+```{r}
+ggplot(data = populacao_brasil, aes(x = as.numeric(periodo), y = valor)) +
+   geom_point() + labs(title = "Gráfico de Crescimento da População Brasileira",
+       x = "Ano",
+       y = "Quantidade de Pessoas") + theme_bw() +
+  scale_y_continuous(labels = scales::comma)
+```
+
+```{r}
+ggplot(data = populacao_brasil, aes(x = periodo, y = valor)) +
+   geom_point() + labs(title = "Gráfico de Crescimento da População Brasileira",
+       x = "Ano",
+       y = "Quantidade de Pessoas") + theme_classic()
+```
+

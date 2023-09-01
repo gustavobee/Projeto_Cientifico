@@ -1,0 +1,13 @@
+Número total dos leitos existentes obtido pelo R:
+
+Leitos Existentes 2011: 6008340
+Leitos Existentes 2012: 5972844
+Leitos Existentes 2013: 5968990
+Leitos Existentes 2014: 5976965
+Leitos Existentes 2015: 5837085
+Leitos Existentes 2016: 5781595
+Leitos Existentes 2017: 5785746
+Leitos Existentes 2018: 5766169
+Leitos Existentes 2019: 5732039
+Leitos Existentes 2020: 6087197
+Leitos Existentes 2021: 6384588

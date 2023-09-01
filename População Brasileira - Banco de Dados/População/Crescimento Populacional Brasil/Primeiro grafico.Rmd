@@ -1,0 +1,65 @@
+---
+title: "Untitled"
+output: html_document
+date: "2023-06-08"
+---
+
+```{r}
+install.packages("tidyr")
+install.packages("ggplot2")
+```
+
+```{r}
+library(tidyr)
+library(ggplot2)
+```
+
+```{r}
+dados <- read.csv("abf0e4b0-8691-4e5f-8180-28c2699c0373_Series - Metadata.csv")
+dados2 <- read.csv("aa695f96-975b-41ec-b2eb-e06cad90ead5_Series - Metadata.csv")
+```
+
+```{r}
+View(dados)
+View(dados2)
+```
+
+```{r}
+dados2$Brazil..BRA.
+```
+
+
+```{r}
+dados2 <- dados2[dados2$Time %in% c(2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021), ]
+```
+
+
+
+```{r}
+ggplot(data = dados2, aes(x = Time, y = Brazil..BRA.)) +
+  geom_point() + labs(title = "Gráfico de Crescimento da População Brasileira",
+       x = "Ano",
+       y = "Quantidade de Pessoas") + theme_classic() 
+```
+
+```{r}
+ggplot(data = dados2, aes(x = Time, y = Brazil..BRA.)) +
+  geom_point() + labs(title = "Gráfico de Crescimento da População Brasileira",
+       x = "Ano",
+       y = "Quantidade de Pessoas") + theme(panel.background = element_rect(fill = "lightblue"))
+```
+
+```{r}
+ggplot(data = dados2, aes(x = Time, y = Brazil..BRA.)) +
+   geom_bar(stat = "identity") + labs(title = "Gráfico de Crescimento da População Brasileira",
+       x = "Ano",
+       y = "Quantidade de Pessoas") + theme_bw()
+```
+
+```{r}
+ggplot(data = dados2, aes(x = Time, y = Brazil..BRA.)) +
+   geom_point() + labs(title = "Gráfico de Crescimento da População Brasileira",
+       x = "Ano",
+       y = "Quantidade de Pessoas") + theme_bw()
+```
+

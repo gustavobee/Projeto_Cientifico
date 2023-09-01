@@ -1,0 +1,172 @@
+---
+title: "Untitled"
+output: html_document
+date: "2023-08-24"
+---
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+leitos_2020 <- read.csv("Leitos_2020.csv")
+leitos_2021 <- read.csv("Leitos_2021.csv")
+```
+
+```{r}
+leitos_amazonas_2020 <- leitos_2020[leitos_2020$UF == 'AM', ]
+leitos_amazonas_2021 <- leitos_2021[leitos_2021$UF == 'AM', ]
+```
+
+```{r}
+leitos_amazonas_2021
+```
+
+```{r}
+somatorio_leitos_202001 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202001'])
+
+somatorio_leitos_202002 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202002'])
+
+somatorio_leitos_202003 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202003'])
+
+somatorio_leitos_202004 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202004'])
+
+somatorio_leitos_202005 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202005'])
+
+somatorio_leitos_202006 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202006'])
+
+somatorio_leitos_202007 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202007'])
+
+somatorio_leitos_202008 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202008'])
+
+somatorio_leitos_202009 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202009'])
+
+somatorio_leitos_202010 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202010'])
+
+somatorio_leitos_202011 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202011'])
+
+somatorio_leitos_202012 <- sum(leitos_amazonas_2020$LEITOS.EXISTENTE[leitos_amazonas_2020$COMP == '202012'])
+```
+
+```{r}
+somatorio_leitos_202001
+
+somatorio_leitos_202002 
+
+somatorio_leitos_202003 
+
+somatorio_leitos_202004 
+
+somatorio_leitos_202005 
+
+somatorio_leitos_202006 
+
+somatorio_leitos_202007 
+
+somatorio_leitos_202008 
+
+somatorio_leitos_202009 
+
+somatorio_leitos_202010 
+
+somatorio_leitos_202011 
+
+somatorio_leitos_202012
+```
+```{r}
+somatorio_leitos_202101 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202101'])
+
+somatorio_leitos_202102 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202102'])
+
+somatorio_leitos_202103 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202103'])
+
+somatorio_leitos_202104 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202104'])
+
+somatorio_leitos_202105 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202105'])
+
+somatorio_leitos_202106 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202106'])
+
+somatorio_leitos_202107 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202107'])
+
+somatorio_leitos_202108 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202108'])
+
+somatorio_leitos_202109 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202109'])
+
+somatorio_leitos_202110 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202110'])
+
+somatorio_leitos_202111 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202111'])
+
+somatorio_leitos_202112 <- sum(leitos_amazonas_2021$LEITOS.EXISTENTE[leitos_amazonas_2021$COMP == '202112'])
+```
+
+```{r}
+somatorio_leitos_202101 
+
+somatorio_leitos_202102 
+
+somatorio_leitos_202103 
+
+somatorio_leitos_202104 
+
+somatorio_leitos_202105 
+
+somatorio_leitos_202106 
+
+somatorio_leitos_202107 
+
+somatorio_leitos_202108 
+
+somatorio_leitos_202109 
+
+somatorio_leitos_202110 
+
+somatorio_leitos_202111 
+
+somatorio_leitos_202112 
+```
+
+```{r}
+leitos_amazonas_2020_mes <- read_excel("Leitos_Amazonas_2020_mes.xlsx")
+leitos_amazonas_2021_mes <- read_excel("Leitos_Amazonas_2021_mes.xlsx")
+```
+
+```{r}
+leitos_amazonas_2021_mes 
+leitos_amazonas_2020_mes 
+```
+
+```{r}
+ordem_meses <- c('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro')
+leitos_amazonas_2020_mes$Mês <- factor(leitos_amazonas_2020_mes$Mês, levels = ordem_meses)
+
+grafico_leitos <- ggplot(leitos_amazonas_2020_mes, aes(x = Mês, y = Leitos)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = Leitos), vjust = 25, color = "white") +
+  labs(title = "Distribuição de Número de Leitos do Amazonas por Mês em 2020",
+       x = "Mês",
+       y = "Número de Leitos") +
+  theme_light() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+ggsave("grafico_leitos.pdf")
+```
+
+```{r}
+leitos_amazonas_2021_mes$Mês <- factor(leitos_amazonas_2021_mes$Mês, levels = ordem_meses)
+
+grafico_amazonas_2021 <- ggplot(leitos_amazonas_2021_mes, aes(x = Mês, y = Leitos)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = Leitos), vjust = 25, color = "white") +
+  labs(title = "Distribuição de Número de Leitos do Amazonas por Mês em 2021",
+       x = "Mês",
+       y = "Número de Leitos") +
+  theme_light() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggsave("grafico_amazonas_2021.pdf")
+```
+

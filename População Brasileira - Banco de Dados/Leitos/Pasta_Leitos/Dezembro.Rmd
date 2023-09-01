@@ -1,0 +1,74 @@
+---
+title: "Soma dos Leitos Brasil"
+output: html_document
+date: "2023-08-24"
+---
+#Fazendo o somatório dos leitos do Brasil inteiro durante os meses de dezembro
+
+#Abrindo as bibliotecas
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+#Lendo os arquivos
+```{r}
+leitos_2021 <- read.csv("Leitos_2021.csv")
+leitos_2020 <- read.csv("Leitos_2020.csv")
+leitos_2019 <- read.csv("Leitos_2019.csv")
+leitos_2018 <- read.csv("Leitos_2018.csv")
+leitos_2017 <- read.csv("Leitos_2017.csv")
+leitos_2016 <- read.csv("Leitos_2016.csv")
+leitos_2015 <- read.csv("Leitos_2015.csv")
+leitos_2014 <- read.csv("Leitos_2014.csv")
+leitos_2013 <- read.csv("Leitos_2013.csv")
+leitos_2012 <- read.csv("Leitos_2012.csv")
+leitos_2011 <- read.csv("Leitos_2011.csv")
+```
+
+#Selecionando só o mês de dezembro
+```{r}
+mes_desejado <- '12'
+
+linhas_filtradas_2021 <- leitos_2021[substr(leitos_2021$COMP, 5, 6) == 12,]
+linhas_filtradas_2020 <- leitos_2020[substr(leitos_2020$COMP, 5, 6) == 12,]
+linhas_filtradas_2019 <- leitos_2019[substr(leitos_2019$COMP, 5, 6) == 12,]
+linhas_filtradas_2018 <- leitos_2018[substr(leitos_2018$COMP, 5, 6) == 12,]
+linhas_filtradas_2017 <- leitos_2017[substr(leitos_2017$COMP, 5, 6) == 12,]
+linhas_filtradas_2016 <- leitos_2016[substr(leitos_2016$COMP, 5, 6) == 12,]
+linhas_filtradas_2015 <- leitos_2015[substr(leitos_2015$COMP, 5, 6) == 12,]
+linhas_filtradas_2014 <- leitos_2014[substr(leitos_2014$COMP, 5, 6) == 12,]
+linhas_filtradas_2013 <- leitos_2013[substr(leitos_2013$COMP, 5, 6) == 12,]
+linhas_filtradas_2012 <- leitos_2012[substr(leitos_2012$COMP, 5, 6) == 12,]
+linhas_filtradas_2011 <- leitos_2011[substr(leitos_2011$COMP, 5, 6) == 12,]
+```
+
+#Checando
+```{r}
+linhas_filtradas_2021 
+```
+#Somatório
+```{r}
+sum(linhas_filtradas_2011$LEITOS.EXISTENTE)
+
+sum(linhas_filtradas_2012$LEITOS.EXISTENTE)
+
+sum(linhas_filtradas_2013$LEITOS.EXISTENTE)
+
+sum(linhas_filtradas_2014$LEITOS.EXISTENTE)
+
+sum(linhas_filtradas_2015$LEITOS.EXISTENTE)
+
+sum(linhas_filtradas_2016$LEITOS.EXISTENTE)
+
+sum(linhas_filtradas_2017$LEITOS.EXISTENTE)
+
+sum(linhas_filtradas_2018$LEITOS.EXISTENTE)
+
+sum(linhas_filtradas_2019$LEITOS.EXISTENTE)
+
+sum(linhas_filtradas_2020$LEITOS.EXISTENTE)
+
+sum(linhas_filtradas_2021$LEITOS.EXISTENTE)
+```
+

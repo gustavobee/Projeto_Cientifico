@@ -1,0 +1,96 @@
+---
+title: "Norte"
+output: html_document
+date: "2023-06-09"
+---
+
+```{r}
+install.packages("readxl")
+```
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+```
+
+```{r}
+dados <- read_excel("Regiao_Norte.xlsx")
+```
+
+```{r}
+tail(dados)
+```
+
+```{r}
+grafico_ponto_bw <- ggplot(data = dados, aes(x = Ano, y = Numero)) +
+  geom_point() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(title = "Gráfico de Crescimento da região Norte",
+       x = "Ano",
+       y = "População") +
+  theme_bw()
+
+ggsave("grafico_ponto_bw.pdf")
+```
+
+```{r}
+grafico_ponto_light <- ggplot(data = dados, aes(x = Ano, y = Numero)) +
+  geom_point() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(title = "Gráfico de Crescimento da região Norte",
+       x = "Ano",
+       y = "População") +
+  theme_light()
+
+ggsave("grafico_ponto_light.pdf")
+```
+
+```{r}
+grafico_linha_bw <- ggplot(data = dados, aes(x = Ano, y = Numero)) +
+  geom_line() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(title = "Gráfico de Crescimento da região Norte",
+       x = "Ano",
+       y = "População") +
+  theme_bw()
+
+ggsave("grafico_linha_bw.pdf")
+```
+
+```{r}
+grafico_linha_light <- ggplot(data = dados, aes(x = Ano, y = Numero)) +
+  geom_line() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(title = "Gráfico de Crescimento da região Norte",
+       x = "Ano",
+       y = "População") +
+  theme_light()
+
+ggsave("grafico_linha_light.pdf")
+```
+
+```{r}
+grafico_linha_ponto_bw <- ggplot(data = dados, aes(x = Ano, y = Numero)) +
+  geom_point() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(title = "Gráfico de Crescimento da região Norte",
+       x = "Ano",
+       y = "População") +
+  theme_bw() + geom_line()
+
+ggsave("grafico_linha_ponto_bw.pdf")
+```
+
+```{r}
+grafico_linha_ponto_light <-ggplot(data = dados, aes(x = Ano, y = Numero)) +
+  geom_point() +
+  scale_y_continuous(labels = scales::comma) +
+  labs(title = "Gráfico de Crescimento da região Norte",
+       x = "Ano",
+       y = "População") +
+  theme_light() + geom_line()
+
+ggsave("grafico_linha_ponto_light.pdf")
+```
+

@@ -1,0 +1,26 @@
+---
+title: "Untitled"
+output: html_document
+date: "2023-08-24"
+---
+
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+arquivo <- read_excel("Pasta2.xlsx")
+```
+
+```{r}
+arquivo
+```
+```{r}
+correlacao <- cor(arquivo$População, arquivo$Leitos)
+```
+
+```{r}
+correlacao
+```
+
